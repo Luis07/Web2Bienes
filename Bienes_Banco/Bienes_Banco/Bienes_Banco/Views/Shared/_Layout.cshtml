@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/materialize.min.css" rel="stylesheet"
+          type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<body>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-4 ">
+            <a href="#" class="brand-logo">Bienvenido</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>@Html.ActionLink("Anunciese", "Index", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Ingresar", "Index", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Contacto", "Index", "Help", new { area = "" }, null)</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year -Derechos Reservados</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

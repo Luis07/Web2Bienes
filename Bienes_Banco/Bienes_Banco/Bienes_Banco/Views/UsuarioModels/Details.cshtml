@@ -1,0 +1,34 @@
+﻿@model Bienes_Banco.Models.UsuarioModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UsuarioModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioPassword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UsuarioId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
