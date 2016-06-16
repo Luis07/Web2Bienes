@@ -11,107 +11,107 @@ using Bienes_Banco.Models;
 
 namespace Bienes_Banco.Controllers
 {
-    public class UsuarioModelsController : Controller
+    public class usersController : Controller
     {
-        private Bienes_BancoContext db = new Bienes_BancoContext();
+        private Model1 db = new Model1();
 
-        // GET: UsuarioModels
+        // GET: users
         public async Task<ActionResult> Index()
         {
-            return View(await db.UsuarioModels.ToListAsync());
+            return View(await db.users.ToListAsync());
         }
 
-        // GET: UsuarioModels/Details/5
+        // GET: users/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UsuarioModel usuarioModel = await db.UsuarioModels.FindAsync(id);
-            if (usuarioModel == null)
+            user user = await db.users.FindAsync(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(usuarioModel);
+            return View(user);
         }
 
-        // GET: UsuarioModels/Create
+        // GET: users/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: UsuarioModels/Create
+        // POST: users/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "UsuarioId,UsuarioName,UsuarioPassword")] UsuarioModel usuarioModel)
+        public async Task<ActionResult> Create([Bind(Include = "id,name,lastname,admin,email,password,ubicacion,activo,bloqueado")] user user)
         {
             if (ModelState.IsValid)
             {
-                db.UsuarioModels.Add(usuarioModel);
+                db.users.Add(user);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(usuarioModel);
+            return View(user);
         }
 
-        // GET: UsuarioModels/Edit/5
+        // GET: users/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UsuarioModel usuarioModel = await db.UsuarioModels.FindAsync(id);
-            if (usuarioModel == null)
+            user user = await db.users.FindAsync(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(usuarioModel);
+            return View(user);
         }
 
-        // POST: UsuarioModels/Edit/5
+        // POST: users/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "UsuarioId,UsuarioName,UsuarioPassword")] UsuarioModel usuarioModel)
+        public async Task<ActionResult> Edit([Bind(Include = "id,name,lastname,admin,email,password,ubicacion,activo,bloqueado")] user user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuarioModel).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(usuarioModel);
+            return View(user);
         }
 
-        // GET: UsuarioModels/Delete/5
+        // GET: users/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UsuarioModel usuarioModel = await db.UsuarioModels.FindAsync(id);
-            if (usuarioModel == null)
+            user user = await db.users.FindAsync(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(usuarioModel);
+            return View(user);
         }
 
-        // POST: UsuarioModels/Delete/5
+        // POST: users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            UsuarioModel usuarioModel = await db.UsuarioModels.FindAsync(id);
-            db.UsuarioModels.Remove(usuarioModel);
+            user user = await db.users.FindAsync(id);
+            db.users.Remove(user);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
