@@ -44,7 +44,9 @@
             @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @ViewData["Error"]
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+               
             </div>
         </div>
 

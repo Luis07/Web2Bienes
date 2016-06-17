@@ -57,6 +57,8 @@ namespace Bienes_Banco.Controllers
                     await db.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
+                else
+                    ViewData["Error"] = "El correo ya existe";
             }
 
             return View(user);
