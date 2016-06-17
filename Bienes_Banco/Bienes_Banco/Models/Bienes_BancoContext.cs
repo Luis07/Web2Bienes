@@ -19,6 +19,6 @@ namespace Bienes_Banco.Models
         {
         }
 
-        public System.Data.Entity.DbSet<Bienes_Banco.Models.UsuarioModel> UsuarioModels { get; set; }
+  
     }
 }

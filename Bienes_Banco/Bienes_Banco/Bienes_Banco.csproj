@@ -322,7 +322,7 @@
     <Content Include="Views\Home\Contacto.cshtml" />
     <Content Include="Views\Contacto\Login.cshtml" />
     <Content Include="Views\Contacto\Registro.cshtml" />
-    <Content Include="Views\users\Create.cshtml" />
+    <Content Include="Views\users\Registro.cshtml" />
     <Content Include="Views\users\Delete.cshtml" />
     <Content Include="Views\users\Details.cshtml" />
     <Content Include="Views\users\Edit.cshtml" />

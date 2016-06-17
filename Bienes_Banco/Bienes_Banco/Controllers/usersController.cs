@@ -37,7 +37,7 @@ namespace Bienes_Banco.Controllers
         }
 
         // GET: users/Create
-        public ActionResult Create()
+        public ActionResult Registro()
         {
             return View();
         }
@@ -47,18 +47,35 @@ namespace Bienes_Banco.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,name,lastname,admin,email,password,ubicacion,activo,bloqueado")] user user)
+        public async Task<ActionResult> Registro([Bind(Include = "id,name,lastname,admin,email,password,ubicacion,activo,bloqueado")] user user)
         {
             if (ModelState.IsValid)
             {
-                db.users.Add(user);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (!FindEmail(user))
+                {
+                    db.users.Add(user);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(user);
         }
-
+        // GET: users/emails/diferente
+        /// <summary>
+        /// Metodo para evitar que se registre un correo ya existente
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>true si no está y false si ya está</returns>
+        public bool FindEmail(user user)
+        {
+            int us =  db.users.Where(u => u.email ==user.email).Count();
+            if (us ==0)
+            {
+                return false;
+            }
+            return true;
+        }
         // GET: users/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
