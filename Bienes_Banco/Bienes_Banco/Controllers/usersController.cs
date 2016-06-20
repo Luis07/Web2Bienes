@@ -63,6 +63,46 @@ namespace Bienes_Banco.Controllers
 
             return View(user);
         }
+
+        // GET: users/Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+        //// POST: users/Login
+        //// Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        //// más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Login([Bind(Include = "email,password")] user user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (!FindEmail(user))
+        //        {
+        //            db.users.Add(user);
+        //            await db.SaveChangesAsync();
+        //            return RedirectToAction("Index");
+        //        }
+        //        else
+        //            ViewData["Error"] = "El correo ya existe";
+        //    }
+
+        //    return View(user);
+        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login([Bind(Include = "email,password")] user user)
+        {
+                if (FindUser(user))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                    ViewData["Error"] = "Usuario o contraseña incorrectos";
+            return View(user);
+        }
+
         // GET: users/emails/diferente
         /// <summary>
         /// Metodo para evitar que se registre un correo ya existente
@@ -73,6 +113,20 @@ namespace Bienes_Banco.Controllers
         {
             int us =  db.users.Where(u => u.email ==user.email).Count();
             if (us ==0)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// metodo para validar el login
+        /// </summary>
+        /// <param name="user">lleva los parametros de usuario y contraseña</param>
+        /// <returns>true si se encuentra el usuario y false si no está</returns>
+        public bool FindUser(user user)
+        {
+            var us = db.users.Where(u => u.email == user.email).Where(u => u.password == user.password).Count();
+            if (us == 0)
             {
                 return false;
             }

@@ -261,6 +261,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\materialize.min.css" />
     <Content Include="Content\materialize.min.js" />
     <Content Include="favicon.ico" />
@@ -320,7 +321,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contacto.cshtml" />
-    <Content Include="Views\Contacto\Login.cshtml" />
+    <Content Include="Views\users\Login.cshtml" />
     <Content Include="Views\Contacto\Registro.cshtml" />
     <Content Include="Views\users\Registro.cshtml" />
     <Content Include="Views\users\Delete.cshtml" />
