@@ -1,11 +1,17 @@
 ﻿body {
+
 }
 
 .izquierda{
-    margin-left: 2%;
+    margin-left: -6%;
+    margin-top: -4.4%;
 }
 .tam{
     width:90%;
+}
+
+.portada{
+    width: 100%;
 }
 
 .bor{
