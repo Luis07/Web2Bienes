@@ -324,7 +324,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contacto.cshtml" />
-    <Content Include="Views\Contacto\Login.cshtml" />
+    <Content Include="Views\users\Login.cshtml" />
     <Content Include="Views\Contacto\Registro.cshtml" />
     <Content Include="Views\users\Registro.cshtml" />
     <Content Include="Views\users\Delete.cshtml" />
