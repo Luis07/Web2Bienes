@@ -29,7 +29,7 @@ namespace Bienes_Banco.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Contacto([Bind(Include = "id,name,lastname,admin,email,password,ubicacion,activo,bloqueado")] user user)
+        public async Task<ActionResult> Contacto([Bind(Include = "name,lastname,email,asunto,contenido")] user user)
         {
             if (ModelState.IsValid)
             {
@@ -41,7 +41,7 @@ namespace Bienes_Banco.Controllers
 
             return View(user);
         }
-        public void EnviarCorreo()
+        public void EnviarCorreo(user user)
         {
             /*-------------------------MENSAJE DE CORREO----------------------*/
 
@@ -49,19 +49,19 @@ namespace Bienes_Banco.Controllers
             System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
 
             //Direccion de correo electronico a la que queremos enviar el mensaje
-            mmsg.To.Add("destinatario@servidordominio.com");
+            mmsg.To.Add("luisbrenes250594@gmail.com");
 
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 
             //Asunto
-            mmsg.Subject = "Asunto del correo";
+            mmsg.Subject = user.asunto.ToString();
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
             //Direccion de correo electronico que queremos que reciba una copia del mensaje
-            mmsg.Bcc.Add("destinatariocopia@servidordominio.com"); //Opcional
+            mmsg.Bcc.Add("luisbrenes250594@gmail.com"); //Opcional
 
             //Cuerpo del Mensaje
-            mmsg.Body = "Texto del contenio del mensaje de correo";
+            mmsg.Body = user.contenido;
             mmsg.BodyEncoding = System.Text.Encoding.UTF8;
             mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
 
@@ -84,7 +84,7 @@ namespace Bienes_Banco.Controllers
             cliente.EnableSsl = true;
             */
 
-            cliente.Host = "mail.servidordominio.com"; //Para Gmail "smtp.gmail.com";
+            cliente.Host = "smtp.gmail.com"; //Para Gmail "smtp.gmail.com";
 
 
             /*-------------------------ENVIO DE CORREO----------------------*/

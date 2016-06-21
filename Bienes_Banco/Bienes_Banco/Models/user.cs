@@ -36,5 +36,9 @@ namespace Bienes_Banco.Models
         public bool activo { get; set; }
 
         public bool bloqueado { get; set; }
+
+        public string asunto { get; set; }
+        
+        public string contenido { get; set; }
     }
 }
