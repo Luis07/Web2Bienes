@@ -31,17 +31,18 @@ namespace Bienes_Banco.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Contacto([Bind(Include = "name,lastname,email,asunto,contenido")] user user)
         {
-            if (ModelState.IsValid)
-            {
-               
-                    db.users.Add(user);
-                    await db.SaveChangesAsync();
-                    return RedirectToAction("Index");
-                   }
-
+            if (EnviarCorreo(user)) {
+                return View(user);
+            }         
+            //if (ModelState.IsValid)
+            //{
+            //        db.users.Add(user);
+            //        await db.SaveChangesAsync();
+            //        return RedirectToAction("Index");
+            //       }
             return View(user);
         }
-        public void EnviarCorreo(user user)
+        public bool EnviarCorreo(user user)
         {
             /*-------------------------MENSAJE DE CORREO----------------------*/
 
@@ -58,7 +59,7 @@ namespace Bienes_Banco.Controllers
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
             //Direccion de correo electronico que queremos que reciba una copia del mensaje
-            mmsg.Bcc.Add("luisbrenes250594@gmail.com"); //Opcional
+            mmsg.Bcc.Add("greivindca7@gmail.com"); //Opcional
 
             //Cuerpo del Mensaje
             mmsg.Body = user.contenido;
@@ -66,7 +67,7 @@ namespace Bienes_Banco.Controllers
             mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
 
             //Correo electronico desde la que enviamos el mensaje
-            mmsg.From = new System.Net.Mail.MailAddress("micuenta@servidordominio.com");
+            mmsg.From = new System.Net.Mail.MailAddress(user.email);
 
 
             /*-------------------------CLIENTE DE CORREO----------------------*/
@@ -76,13 +77,13 @@ namespace Bienes_Banco.Controllers
 
             //Hay que crear las credenciales del correo emisor
             cliente.Credentials =
-                new System.Net.NetworkCredential("micuenta@servidordominio.com", "micontraseña");
+                new System.Net.NetworkCredential("greivindca7@gmail.com", "gredan0708$");
 
             //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail
-            /*
+            
             cliente.Port = 587;
             cliente.EnableSsl = true;
-            */
+            
 
             cliente.Host = "smtp.gmail.com"; //Para Gmail "smtp.gmail.com";
 
@@ -93,9 +94,12 @@ namespace Bienes_Banco.Controllers
             {
                 //Enviamos el mensaje      
                 cliente.Send(mmsg);
+                return true;
             }
             catch (System.Net.Mail.SmtpException ex)
             {
+                ex.ToString();
+                return false;
                 //Aquí gestionamos los errores al intentar enviar el correo
             }
         }
