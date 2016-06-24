@@ -8,6 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Bienes_Banco.Models;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Bienes_Banco.Controllers
 {
@@ -35,7 +38,31 @@ namespace Bienes_Banco.Controllers
             }
             return View(bien);
         }
-
+        /// <summary>
+        /// metodo para validar el formato de la imagen a guardar
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns>true si está bien y false si no</returns>
+        public bool validateImage(bien bien)
+        {
+            try
+            {
+                Stream stream = new MemoryStream(bien.imagen);
+                using (Image img = Image.FromStream(stream))
+                {
+                    if (img.RawFormat.Equals(ImageFormat.Bmp) ||
+                        img.RawFormat.Equals(ImageFormat.Gif) ||
+                        img.RawFormat.Equals(ImageFormat.Jpeg) ||
+                        img.RawFormat.Equals(ImageFormat.Png))
+                        return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         // GET: biens/Create
         public ActionResult Create()
         {
