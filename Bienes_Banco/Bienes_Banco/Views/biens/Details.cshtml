@@ -1,0 +1,82 @@
+﻿@model Bienes_Banco.Models.bien
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>bien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.localizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.localizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recamaras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recamaras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.baños)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.baños)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estacionamientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estacionamientos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.m_construccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_construccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.likes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.likes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_bien }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

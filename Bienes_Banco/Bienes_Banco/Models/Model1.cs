@@ -11,11 +11,15 @@ namespace Bienes_Banco.Models
             : base("name=UserModel")
         {
         }
-
+        public virtual DbSet<bien> bien { get; set; }
         public virtual DbSet<user> users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<bien>()
+               .Property(e => e.localizacion)
+               .IsUnicode(false);
+
             modelBuilder.Entity<user>()
                 .Property(e => e.name)
                 .IsUnicode(false);

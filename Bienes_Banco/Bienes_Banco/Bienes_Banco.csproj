@@ -238,6 +238,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\biensController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\usersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -246,6 +247,7 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\bien.cs" />
     <Compile Include="Models\Bienes_BancoContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Model1.cs" />
@@ -328,6 +330,11 @@
     <Content Include="Views\users\Details.cshtml" />
     <Content Include="Views\users\Edit.cshtml" />
     <Content Include="Views\users\Index.cshtml" />
+    <Content Include="Views\biens\Create.cshtml" />
+    <Content Include="Views\biens\Delete.cshtml" />
+    <Content Include="Views\biens\Details.cshtml" />
+    <Content Include="Views\biens\Edit.cshtml" />
+    <Content Include="Views\biens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
