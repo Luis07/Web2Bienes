@@ -17,7 +17,7 @@ namespace Banco.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private string loqueseaquenodeerror="";
         public AccountController()
         {
         }
