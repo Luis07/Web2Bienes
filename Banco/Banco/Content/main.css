@@ -43,6 +43,9 @@ margin-left:10%;
 .ar{
     padding-top: 4%;
 }
+.top{
+    margin-top: 4%;
+}
 .margen{
     margin-top: 2%;
 }
@@ -68,4 +71,8 @@ top: 0;
 left: 0;
 width: 100% !important;
 height: 100% !important;
+}
+
+.texarea{
+    padding-bottom: 30%;
 }
