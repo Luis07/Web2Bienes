@@ -58,11 +58,11 @@ namespace Banco
                appId: "843922695741105",
                appSecret: "287477343eed98bd86538544799d637a");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "99516482457-84bk1e1v7ovsj2tlt9o5d3so7esscd5t.apps.googleusercontent.com",
+                ClientSecret = "PYBUTnqUrR6OYezbvDW43xt4"
+            });
         }
     }
 }

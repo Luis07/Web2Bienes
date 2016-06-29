@@ -1,0 +1,71 @@
+﻿body {
+
+}
+
+.izquierda{
+    margin-left: -6%;
+    margin-top: -4.4%;
+}
+.tam{
+    width:90%;
+}
+
+.portada{
+    width: 100%;
+}
+
+.bor{
+    border-right: solid #546e7a 2px;
+}
+.arriba{
+    margin-top: 6%;
+}
+
+.pr{
+width: 60%;
+margin-left:10%;
+}
+
+.menu{
+    font-size:1.5rem;
+}
+.prs{
+    margin-top: 2%;
+    box-shadow: -5px 14px 10px 35px black;
+    padding-bottom: 2%;
+}
+
+.bordes{
+    width: 45%;
+    margin-left: 18%;
+}
+
+.ar{
+    padding-top: 4%;
+}
+.margen{
+    margin-top: 2%;
+}
+
+.derecha{
+    margin-left: -18%;
+}
+
+.cajon{
+    box-shadow: 1px 1px 1px 1px lightgray;
+}
+
+.google-maps {
+position: relative;
+padding-bottom: 35%;
+height: 0;
+overflow: hidden;
+}
+
+.google-maps iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100% !important;
+height: 100% !important;
+}
