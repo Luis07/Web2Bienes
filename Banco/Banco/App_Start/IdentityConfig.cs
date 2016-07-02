@@ -18,7 +18,37 @@ namespace Banco
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Conecte su servicio de correo electrónico aquí para enviar correo electrónico.
+            //Creamos un nuevo Objeto de mensaje
+            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+            //Direccion de correo electronico a la que queremos enviar el mensaje
+            mmsg.To.Add(message.Destination);
+            //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
+            //Asunto
+            mmsg.Subject = message.Subject;
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+            //Direccion de correo electronico que queremos que reciba una copia del mensaje
+            mmsg.Bcc.Add("greivindca7@gmail.com"); //Opcional
+            //Cuerpo del Mensaje
+            mmsg.Body = message.Body;
+            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
+            mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
+            //Correo electronico desde la que enviamos el mensaje
+            mmsg.From = new System.Net.Mail.MailAddress("luisbrenes250594@gmail.com");
+            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+            cliente.Credentials =
+                new System.Net.NetworkCredential("greivindca7@gmail.com", "gredan0708$");
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            cliente.Host = "smtp.gmail.com"; //Para Gmail "smtp.gmail.com";
+            try
+            {
+                //Enviamos el mensaje      
+                cliente.Send(mmsg);
+            }
+            catch (System.Net.Mail.SmtpException ex)
+            {
+                ex.ToString();
+            }
             return Task.FromResult(0);
         }
     }
