@@ -1,0 +1,16 @@
+namespace Banco.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class imagen : DbMigration
+    {
+        public override void Up()
+        {
+        }
+        
+        public override void Down()
+        {
+        }
+    }
+}

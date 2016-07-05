@@ -3,6 +3,7 @@ using Bienes_Banco.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -13,11 +14,13 @@ namespace Banco.Controllers
     public class HomeController : Controller
     {
         private ApplicationUserManager _userManager;
-        public ActionResult Index()
-        {
-            return View();
-        }
+        private ApplicationDbContext db = new ApplicationDbContext();
 
+        // GET: Posts
+        public async Task<ActionResult> Index()
+        {
+            return View(await db.Posts.ToListAsync());
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 <div class="card-small row">
     <ul>
         <li>
@@ -16,64 +15,84 @@
     </ul>
 </div>
 <div class="row">
-    <div class="center col-md-4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="http://www.mclanfranconi.com/wp-content/uploads/96-casa-vila-4-camere-alba-1467756614.jpg">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Casa en Alajuela<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">Ver</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Casa grande ubicada en Alajuela, con ventanas, puertas y vidrios.</p>
-            </div>
-        </div>
-    </div>
-    <div class="center col-md-4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="http://consiguetucasapropia.com/wp-content/uploads/2011/08/casa-en-eua.jpg">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Casa en Heredia<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">Ver</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Casa grande ubicada en Heredia, con ventanas, puertas y vidrios.</p>
-            </div>
-        </div>
-    </div>
-    <div class="center col-md-4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="http://images.evisos.com.mx/2012/07/23/administracion-fraccionamientos-condominios-bienes-inmuebles_66c1297_3.jpg">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Casa en San Jose<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">Ver</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Casa grande ubicada en San Jose, con ventanas, puertas y vidrios.</p>
-            </div>
-        </div>
-    </div>
-    <div class="center col-md-4">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="http://www.casadelujo.com/public/images/1903d.jpg">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Casa en Cartago<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">Ver</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Casa grande ubicada en Cartago, con ventanas, puertas y vidrios.</p>
-            </div>
-        </div>
-    </div>
+    @foreach (var item in Model)
+    {
+        <div class="center col-md-4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://www.mclanfranconi.com/wp-content/uploads/96-casa-vila-4-camere-alba-1467756614.jpg">
+                </div>
+                <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Casa en Alajuela<i class="material-icons right">more_vert</i></span>
+    <p><a href="#">Ver</a></p>
 </div>
+<div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+    <p>Casa grande ubicada en Alajuela, con ventanas, puertas y vidrios.</p>
+</div>
+            </div>
+            </div>
+                }
+        </div>
+    <div class="row">
+        <div class="center col-md-4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://www.mclanfranconi.com/wp-content/uploads/96-casa-vila-4-camere-alba-1467756614.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Casa en Alajuela<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Ver</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <p>Casa grande ubicada en Alajuela, con ventanas, puertas y vidrios.</p>
+                </div>
+            </div>
+        </div>
+        <div class="center col-md-4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://consiguetucasapropia.com/wp-content/uploads/2011/08/casa-en-eua.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Casa en Heredia<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Ver</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <p>Casa grande ubicada en Heredia, con ventanas, puertas y vidrios.</p>
+                </div>
+            </div>
+        </div>
+        <div class="center col-md-4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://images.evisos.com.mx/2012/07/23/administracion-fraccionamientos-condominios-bienes-inmuebles_66c1297_3.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Casa en San Jose<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Ver</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <p>Casa grande ubicada en San Jose, con ventanas, puertas y vidrios.</p>
+                </div>
+            </div>
+        </div>
+        <div class="center col-md-4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://www.casadelujo.com/public/images/1903d.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Casa en Cartago<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Ver</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <p>Casa grande ubicada en Cartago, con ventanas, puertas y vidrios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
