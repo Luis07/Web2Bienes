@@ -52,7 +52,7 @@ namespace Banco.Models
         [Display(Name = "Correo electrónico")]
         [EmailAddress]
         public string Email { get; set; }
-
+       
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
@@ -60,6 +60,8 @@ namespace Banco.Models
 
         [Display(Name = "¿Recordar cuenta?")]
         public bool RememberMe { get; set; }
+        [Display(Name = "¿Confirmar Email?")]
+        public bool EmailConfirmed { get; set; }
     }
 
     public class RegisterViewModel

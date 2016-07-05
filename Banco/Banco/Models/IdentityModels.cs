@@ -29,5 +29,9 @@ namespace Banco.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Banco.Models.Coment> Coments { get; set; }
+
+        public System.Data.Entity.DbSet<Banco.Models.Post> Posts { get; set; }
     }
 }
